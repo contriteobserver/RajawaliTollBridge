@@ -11,3 +11,8 @@ Implements:
  - bump and specular texture mapping
 
 ![example screenshot](screenshot.png)
+
+This project contains submodules, so one may wish to clone with the `--recurse-submodules` option, as in
+```
+git clone --recurse-submodules https://github.com/contriteobserver/RajawaliTollBridge.git
+```
