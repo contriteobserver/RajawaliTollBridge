@@ -1,0 +1,3 @@
+[submodule "app/src/main/cpp/tinyobjloader"]
+	path = app/src/main/cpp/tinyobjloader
+	url = https://github.com/contriteobserver/tinyobjloader.git
