@@ -1,0 +1,60 @@
+
+newmtl Blue
+Ns 256
+Ka 0.2 0.2 0.3
+Kd 0.4 0.4 0.7
+Ks 0.5 0.5 0.5
+Ke 0.0 0.0 0.0
+Ni 1.45
+d 1.0
+illum 2
+
+newmtl Cyan
+Ns 256
+Ka 0.2 0.3 0.3
+Kd 0.4 0.7 0.7
+Ks 0.5 0.5 0.5
+Ke 0.0 0.0 0.0
+Ni 1.45
+d 1.0
+illum 2
+
+newmtl Green
+Ns 256
+Ka 0.2 0.3 0.2
+Kd 0.4 0.7 0.4
+Ks 0.5 0.5 0.5
+Ke 0.0 0.0 0.0
+Ni 1.45
+d 1.0
+illum 2
+
+newmtl Magenta
+Ns 256
+Ka 0.3 0.2 0.3
+Kd 0.7 0.4 0.7
+Ks 0.5 0.5 0.5
+Ke 0.0 0.0 0.0
+Ni 1.45
+d 1.0
+illum 2
+
+newmtl Red
+Ns 256
+Ka 0.3 0.2 0.2
+Kd 0.7 0.4 0.4
+Ks 0.5 0.5 0.5
+Ke 0.0 0.0 0.0
+Ni 1.45
+d 1.0
+illum 2
+
+newmtl Yellow
+Ns 256
+Ka 0.3 0.3 0.2
+Kd 0.7 0.7 0.4
+Ks 0.5 0.5 0.5
+Ke 0.0 0.0 0.0
+Ni 1.45
+d 1.0
+illum 2
