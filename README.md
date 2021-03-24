@@ -5,7 +5,8 @@ the [Tiny wavefront obj loader](https://github.com/tinyobjloader/tinyobjloader)
 and the [Rajawali rendering engine](https://github.com/Rajawali/Rajawali)
 
 Implements:
- - geometry triangulation and material loading
+ - geometry triangulation
+ - loading multiple materials per shape
  - ambient, diffuse and specular color loading
  - diffuse texture loading
  - bump and specular texture mapping
