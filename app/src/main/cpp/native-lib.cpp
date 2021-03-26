@@ -78,6 +78,17 @@ Java_org_rajawali3d_tinyloaderbridge_Bridge_getWarnings(
     return env->NewStringUTF(reader->Warning().c_str());
 }
 
+extern "C" JNIEXPORT jint JNICALL
+Java_org_rajawali3d_tinyloaderbridge_Bridge_getNumShapes(
+        JNIEnv* env,
+        jclass, /* this */
+        jlong handle
+) {
+    env = env;
+    auto reader = reinterpret_cast<tinyobj::ObjReader *>(handle);
+    return reader->GetShapes().size();
+}
+
 extern "C" JNIEXPORT jfloatArray JNICALL
 Java_org_rajawali3d_tinyloaderbridge_Bridge_getVertices(
         JNIEnv* env,
@@ -150,19 +161,21 @@ Java_org_rajawali3d_tinyloaderbridge_Bridge_getTexcoords(
     return jArray;
 }
 
-extern "C" JNIEXPORT jint JNICALL
-Java_org_rajawali3d_tinyloaderbridge_Bridge_getNumShapes(
+extern "C" JNIEXPORT jstring JNICALL
+Java_org_rajawali3d_tinyloaderbridge_Bridge_getShapeName(
         JNIEnv* env,
         jclass, /* this */
-        jlong handle
+        jlong handle,
+        jint shapeIndex
 ) {
     env = env;
     auto reader = reinterpret_cast<tinyobj::ObjReader *>(handle);
-    return reader->GetShapes().size();
+    auto name = reader->GetShapes().at(shapeIndex).name;
+    return env->NewStringUTF(name.c_str());
 }
 
 extern "C" JNIEXPORT jintArray JNICALL
-Java_org_rajawali3d_tinyloaderbridge_Bridge_getMaterialIds(
+Java_org_rajawali3d_tinyloaderbridge_Bridge_getFaceMaterials(
         JNIEnv* env,
         jclass, /* this */
         jlong handle,
@@ -242,6 +255,18 @@ Java_org_rajawali3d_tinyloaderbridge_Bridge_getNormalIndices(
     return jArray;
 }
 
+extern "C" JNIEXPORT jstring JNICALL
+Java_org_rajawali3d_tinyloaderbridge_Bridge_getMaterialName(
+        JNIEnv* env,
+        jclass, /* this */
+        jlong handle,
+        jint shapeIndex
+) {
+    env = env;
+    auto reader = reinterpret_cast<tinyobj::ObjReader *>(handle);
+    auto name = reader->GetMaterials().at(shapeIndex).name;
+    return env->NewStringUTF(name.c_str());
+}
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_org_rajawali3d_tinyloaderbridge_Bridge_getAlphaTextureName(
@@ -254,6 +279,18 @@ Java_org_rajawali3d_tinyloaderbridge_Bridge_getAlphaTextureName(
     auto reader = reinterpret_cast<tinyobj::ObjReader *>(handle);
     auto name = reader->GetMaterials().at(shapeIndex).alpha_texname;
     return env->NewStringUTF(name.c_str());
+}
+
+extern "C" JNIEXPORT jfloat JNICALL
+Java_org_rajawali3d_tinyloaderbridge_Bridge_getDissolve(
+        JNIEnv* env,
+        jclass, /* this */
+        jlong handle,
+        jint shapeIndex
+) {
+    env = env;
+    auto reader = reinterpret_cast<tinyobj::ObjReader *>(handle);
+    return reader->GetMaterials().at(shapeIndex).dissolve;
 }
 
 extern "C" JNIEXPORT jfloatArray JNICALL
