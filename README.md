@@ -10,6 +10,7 @@ Implements:
  - ambient, diffuse and specular color loading
  - diffuse texture loading
  - bump and specular texture mapping
+ - transparency (dissolve)
 
 ![example screenshot](screenshot.png)
 
