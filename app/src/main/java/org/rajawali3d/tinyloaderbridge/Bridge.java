@@ -191,6 +191,7 @@ public class Bridge {
 
         String bump = getBumpTextureName(mHandle, id);
         String diffuse = getDiffuseTextureName(mHandle, id);
+        String occlusion = getAmbientTextureName(mHandle, id);
         String highlight = getHighlightTextureName(mHandle, id);
 
         Material material = new Material();
@@ -204,6 +205,7 @@ public class Bridge {
         } else {
             InputStream is = mAssetManager.open(diffuse);
             Bitmap bitmap = BitmapFactory.decodeStream(is);
+            is.close();
             String name = ext.matcher(diffuse).replaceAll("");
             Texture texture = new Texture(name, bitmap);
             texture.setInfluence(getDissolve(mHandle, id));
@@ -211,17 +213,19 @@ public class Bridge {
             material.setColorInfluence(0);
         }
         if(!highlight.isEmpty()) {
-            InputStream is = mAssetManager.open(diffuse);
+            InputStream is = mAssetManager.open(highlight);
             Bitmap bitmap = BitmapFactory.decodeStream(is);
-            String name = ext.matcher(diffuse).replaceAll("");
+            is.close();
+            String name = ext.matcher(highlight).replaceAll("");
             SpecularMapTexture texture = new SpecularMapTexture(name, bitmap);
             texture.setInfluence(getDissolve(mHandle, id));
             material.addTexture(texture);
         }
         if(!bump.isEmpty()) {
-            InputStream is = mAssetManager.open(diffuse);
+            InputStream is = mAssetManager.open(bump);
             Bitmap bitmap = BitmapFactory.decodeStream(is);
-            String name = ext.matcher(diffuse).replaceAll("");
+            is.close();
+            String name = ext.matcher(bump).replaceAll("");
             NormalMapTexture texture = new NormalMapTexture(name, bitmap);
             material.addTexture(texture);
         }

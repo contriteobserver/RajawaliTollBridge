@@ -10,12 +10,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 
 import org.rajawali3d.Object3D;
-import org.rajawali3d.animation.Animation;
-import org.rajawali3d.animation.Animation3D;
-import org.rajawali3d.animation.RotateOnAxisAnimation;
 import org.rajawali3d.lights.ALight;
 import org.rajawali3d.lights.DirectionalLight;
-import org.rajawali3d.math.vector.Vector3;
 import org.rajawali3d.renderer.Renderer;
 import org.rajawali3d.view.SurfaceView;
 
@@ -58,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 getCurrentScene().setBackgroundColor(Color.CYAN & Color.DKGRAY);
 
                 ALight key = new DirectionalLight(-8,-8,-8);
+                key.setPower(1);
                 getCurrentScene().addLight(key);
 
                 Bridge bridge = new Bridge(getAssets(), "cube.obj", "cube.mtl");
